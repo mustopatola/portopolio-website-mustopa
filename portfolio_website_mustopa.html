@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustopa - Operator Produksi & Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            400: '#829ab1',
+                            500: '#627d98',
+                            600: '#486581',
+                            700: '#334e68',
+                            800: '#243b53',
+                            900: '#102a43',
+                            950: '#0b1d3a',
+                        },
+                        brand: {
+                            navy: '#0b1d3a',
+                            lightBg: '#f8fafc',
+                            cardBg: '#ffffff',
+                            accent: '#2563eb',
+                            amber: '#f59e0b',
+                            steel: '#475569'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-accent {
+            box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.2);
+        }
+        .navy-gradient {
+            background: linear-gradient(135deg, #0b1d3a 0%, #1e3a8a 100%);
+        }
+        .navy-glass {
+            background: rgba(11, 29, 58, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(11, 29, 58, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-900 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Name -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-navy-950 text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        M
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-navy-950 block leading-none">MUSTOPA</span>
+                        <span class="text-xs text-blue-600 font-mono font-medium tracking-wide">AUTOMOTIVE & MANUFACTURING</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#hero" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 rounded-lg hover:bg-slate-100 transition">Tentang</a>
+                    <a href="#experience" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 rounded-lg hover:bg-slate-100 transition">Pengalaman</a>
+                    <a href="#skills" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 rounded-lg hover:bg-slate-100 transition">Keahlian & Alat</a>
+                    <a href="#masspro" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 rounded-lg hover:bg-slate-100 transition">Proyek Masspro</a>
+                    <a href="#education" class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 rounded-lg hover:bg-slate-100 transition">Pendidikan</a>
+                    <a href="#contact" class="ml-3 px-5 py-2.5 text-sm font-bold text-white bg-navy-950 hover:bg-blue-900 rounded-xl shadow-lg shadow-navy-950/20 transition hover:-translate-y-0.5">
+                        <i class="fa-solid me-1.5 fa-envelope"></i> Kontak
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-2">
+            <a href="#hero" class="mobile-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-100 rounded-lg">Tentang Saya</a>
+            <a href="#experience" class="mobile-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-100 rounded-lg">Pengalaman Kerja</a>
+            <a href="#skills" class="mobile-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-100 rounded-lg">Keahlian Teknis</a>
+            <a href="#masspro" class="mobile-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-100 rounded-lg">Proyek Masspro</a>
+            <a href="#education" class="mobile-link block px-4 py-2.5 text-base font-semibold text-slate-700 hover:bg-slate-100 rounded-lg">Pendidikan</a>
+            <a href="#contact" class="mobile-link block px-4 py-2.5 text-base font-bold text-white bg-navy-950 text-center rounded-xl shadow mt-4">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative py-16 lg:py-24 overflow-hidden bg-slate-50 border-b border-slate-200">
+        <!-- Subtle background pattern -->
+        <div class="absolute inset-0 opacity-40 pointer-events-none bg-[radial-gradient(#1e3a8a_0.75px,transparent_0.75px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-blue-900 text-xs font-bold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        5 Tahun Pengalaman Manufaktur Otomotif
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-950 tracking-tight leading-none">
+                        Operator Produksi & <br class="hidden sm:inline"><span class="text-blue-700">Engineering Presisi</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        Ahli dalam proses manufaktur otomotif, pengoperasian <strong class="text-navy-950 font-semibold">Hoist Crane 10 Ton</strong>, teknik <strong class="text-navy-950 font-semibold">Welding</strong>, serta pengukuran presisi <strong class="text-navy-950 font-semibold">Caliper & Mikrometer Sekrup</strong>. Berpengalaman di <span class="text-slate-900 font-semibold underline decoration-blue-500 underline-offset-4">PT Mitsubishi Motors Krama Yudha Indonesia</span> dan <span class="text-slate-900 font-semibold underline decoration-blue-500 underline-offset-4">PT Adyawinsa Stamping Industries</span> mengawal pembuatan mobil baru dari trial hingga Mass Production (Masspro).
+                    </p>
+
+                    <!-- Quick Stats Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-navy-950">5+ Thn</div>
+                            <div class="text-xs text-slate-500 font-medium">Pengalaman Kerja</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-navy-950">10 Ton</div>
+                            <div class="text-xs text-slate-500 font-medium">Lisensi/Keahlian Hoist Crane</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm col-span-2 sm:col-span-1">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-blue-700">100%</div>
+                            <div class="text-xs text-slate-500 font-medium">Standar K3 & 5S/5R</div>
+                        </div>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-navy-950 text-white font-bold text-sm shadow-xl shadow-navy-950/20 hover:bg-blue-900 transition flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+                        </a>
+                        <a href="#experience" class="px-7 py-3.5 rounded-xl bg-white text-navy-950 border border-slate-300 font-bold text-sm hover:bg-slate-100 transition flex items-center gap-2">
+                            <i class="fa-solid fa-briefcase text-blue-600"></i> Lihat Rekam Jejak
+                        </a>
+                        <button onclick="copyEmail()" class="px-4 py-3.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium text-sm transition flex items-center gap-2" title="Salin Email">
+                            <i class="fa-regular fa-copy"></i>
+                            <span id="copy-btn-text" class="hidden sm:inline">mustopa6801@gmail.com</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Visual Hero Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Background Glow Accent -->
+                        <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-blue-600 to-navy-900 opacity-20 blur-xl"></div>
+                        
+                        <!-- Main Card Frame -->
+                        <div class="relative rounded-3xl bg-navy-950 p-6 sm:p-8 text-white shadow-2xl border border-slate-800">
+                            <!-- Card Header -->
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-5 mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-blue-600/30 border border-blue-400/30 flex items-center justify-center text-blue-400 text-xl font-bold">
+                                        <i class="fa-solid fa-user-gear"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-lg font-bold leading-tight">Mustopa</h2>
+                                        <p class="text-xs text-blue-300 font-mono">Bekasi, Jawa Barat</p>
+                                    </div>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-semibold">
+                                    READY TO WORK
+                                </span>
+                            </div>
+
+                            <!-- Core Competency List -->
+                            <div class="space-y-4">
+                                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Spesialisasi & Alat Utama</p>
+
+                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-3 hover:border-blue-500/50 transition">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-900/50 text-blue-400 flex items-center justify-center text-lg">
+                                        <i class="fa-solid fa-truck-ramp-box"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold">Hoist Crane 10 Ton</h3>
+                                        <p class="text-xs text-slate-400">Pengoperasian material berat & dies stamping</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-3 hover:border-blue-500/50 transition">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-900/40 text-amber-400 flex items-center justify-center text-lg">
+                                        <i class="fa-solid fa-fire-burner"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold">Teknik Welding (Pengelasan)</h3>
+                                        <p class="text-xs text-slate-400">Assembly komponen logam & perbaikan ringan</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-3 hover:border-blue-500/50 transition">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-900/40 text-emerald-400 flex items-center justify-center text-lg">
+                                        <i class="fa-solid fa-ruler-combined"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold">Pengukuran Presisi</h3>
+                                        <p class="text-xs text-slate-400">Jangka Sorong (Caliper) & Mikrometer Sekrup</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-3 hover:border-blue-500/50 transition">
+                                    <div class="w-10 h-10 rounded-lg bg-purple-900/40 text-purple-400 flex items-center justify-center text-lg">
+                                        <i class="fa-solid fa-car-side"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold">Mass Production & New Model</h3>
+                                        <p class="text-xs text-slate-400">Pengawalan trial proyek hingga produksi massal</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer Contact Link -->
+                            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-envelope text-blue-400 me-1"></i> mustopa6801@gmail.com</span>
+                                <span><i class="fa-solid fa-phone text-emerald-400 me-1"></i> 08568967167</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Karir & Rekam Jejak</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3">Pengalaman Kerja Manufaktur</h2>
+                <p class="text-slate-600 mt-2 text-base">Terbiasa bekerja dengan disiplin tinggi, standar keselamatan kerja (K3/5S), serta efisiensi proses produksi otomotif.</p>
+            </div>
+
+            <!-- Experience Timeline Cards -->
+            <div class="space-y-8 max-w-4xl mx-auto">
+                
+                <!-- Company 1: PT Adyawinsa Stamping Industries -->
+                <div class="relative bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
+                        <div>
+                            <span class="px-2.5 py-1 rounded bg-blue-100 text-blue-800 font-bold text-xs uppercase tracking-wider">Terbaru</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-navy-950 mt-1">PT Adyawinsa Stamping Industries</h3>
+                            <p class="text-sm font-semibold text-blue-700">Operator Produksi / Stamping & Assembly</p>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <span class="inline-block px-3 py-1 rounded-lg bg-navy-950 text-white font-mono text-xs font-semibold">
+                                Maret 2026 – Juni 2026
+                            </span>
+                            <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot me-1"></i> Indonesia</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-700 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Melaksanakan proses <strong>stamping dan welding (pengelasan)</strong> komponen logam kendaraan dengan tingkat presisi dan akurasi tinggi.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Melakukan <strong>In-Process Quality Control (IPQC)</strong> terhadap hasil cetakan dan sambungan las guna menekan defect rate (tingkat cacat produk).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Bekerja sama erat dengan tim <strong>maintenance dan engineering</strong> dalam mengawal trial pembuatan mobil baru hingga siap mencapai tahap Mass Production (Masspro).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Mengatasi kendala teknis ringan pada mesin produksi harian serta menjaga kelancaran output produksi harian.</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">Stamping Process</span>
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">Welding Assembly</span>
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">New Car Masspro Trial</span>
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">In-Process QC</span>
+                    </div>
+                </div>
+
+                <!-- Company 2: PT Mitsubishi Motors Krama Yudha Indonesia -->
+                <div class="relative bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
+                        <div>
+                            <span class="px-2.5 py-1 rounded bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider">4 Tahun Masa Kerja</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-navy-950 mt-1">PT Mitsubishi Motors Krama Yudha Indonesia</h3>
+                            <p class="text-sm font-semibold text-blue-700">Operator Produksi Otomotif</p>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <span class="inline-block px-3 py-1 rounded-lg bg-navy-950 text-white font-mono text-xs font-semibold">
+                                November 2021 – November 2025
+                            </span>
+                            <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot me-1"></i> Indonesia</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-700 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Mengoperasikan mesin dan peralatan produksi otomotif canggih sesuai <strong>Standard Operating Procedure (SOP)</strong> untuk konsistensi pencapaian target harian.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Memastikan kualitas produk dengan melakukan pengukuran presisi tingkat tinggi menggunakan alat ukur <strong>Jangka Sorong (Caliper) & Mikrometer Sekrup</strong>.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Menerapkan standar ketat <strong>K3 (Keselamatan dan Kesehatan Kerja)</strong> serta budaya <strong>5S / 5R</strong> di seluruh area kerja.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-600 mt-1 flex-shrink-0"></i>
+                            <span>Mengoperasikan <strong>Hoist Crane 10 Ton</strong> untuk perpindahan material berat dan perlengkapan produksi dengan aman dan efisien.</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">Automotive Assembly</span>
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">Caliper & Mikrometer</span>
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">Hoist Crane 10T</span>
+                        <span class="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-semibold text-slate-700">SOP & 5S/5R</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-20 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Kualifikasi Teknis</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3">Keahlian Utama & Alat Kerja</h2>
+                <p class="text-slate-600 mt-2 text-base">Kombinasi kemampuan operasional alat berat, teknik pengelasan, dan pengukuran tingkat presisi tinggi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Skill Card 1: Hoist Crane -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-navy-950 text-white flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950">Hoist Crane 10 Ton</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                        Mampu mengoperasikan Hoist Crane berkapasitas hingga 10 Ton untuk pemindahan bahan baku berat, mold, dan dies stamping secara presisi dengan mengutamakan aspek keselamatan K3.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-blue-700">
+                        <span>LIFTING & MATERIAL HANDLING</span>
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2: Welding -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950">Teknik Welding (Pengelasan)</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                        Keahlian dalam pengelasan logam dasar dan rangka kendaraan otomotif. Memahami penetrasi las yang baik, kerapian sambungan, serta inspeksi penetrasi hasil pengelasan.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-amber-600">
+                        <span>METAL JOINING & FABRICATION</span>
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3: Precision Instruments -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950">Mikrometer & Caliper</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                        Menguasai penggunaan alat ukur presisi (Vernier Caliper/Jangka Sorong & Mikrometer Sekrup) hingga ketelitian milimeter/mikron sesuai standar drawing/spesifikasi teknis produk.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-blue-600">
+                        <span>PRECISION MEASUREMENT</span>
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4: Stamping & Assembly -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-700 text-white flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950">Stamping & Metal Assembly</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                        Memahami alur proses pencetakan plat logam (stamping process) dan perakitan struktur bodi kendaraan dengan efisiensi tinggi serta pengawasan kecacatan.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-purple-700">
+                        <span>PRESS & ASSEMBLY LINE</span>
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5: Quality Control -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950">In-Process QC & Drawing</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                        Terbiasa membaca gambar teknik (Engineering Drawing), melakukan pemantauan mutu awal (IPQC), serta meminimalisir persentase produk cacat (defect rate).
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-emerald-600">
+                        <span>QUALITY ASSURANCE</span>
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                </div>
+
+                <!-- Skill Card 6: K3 & 5S/5R -->
+                <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-blue-500 hover:shadow-md transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-slate-800 text-white flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-950">Budaya K3 & 5S / 5R</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                        Disiplin tinggi terhadap Kesehatan dan Keselamatan Kerja (K3) serta pemeliharaan standar area kerja bersih, ringkas, dan rapi (Seiri, Seiton, Seiso, Seiketsu, Shitsuke).
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-semibold text-slate-800">
+                        <span>SAFETY & INDUSTRIAL WORKPLACE</span>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interactive Gauge Demonstration Widget -->
+            <div class="mt-16 bg-navy-950 rounded-3xl p-6 sm:p-10 text-white border border-slate-800 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-mono font-bold border border-blue-500/30">
+                            SIMULATOR INTERAKTIF
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold">Uji Akurasi Pengukuran Presisi</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Simulasi pengoperasian alat ukur Vernier Caliper & Mikrometer Sekrup yang biasa digunakan Mustopa dalam menginspeksi ketebalan plat dan komponen kendaraan.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-3">
+                            <button onclick="setMeasurement('caliper')" id="btn-caliper" class="px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold text-xs transition">
+                                <i class="fa-solid fa-ruler-horizontal me-1"></i> Mode Caliper (Jangka Sorong)
+                            </button>
+                            <button onclick="setMeasurement('micrometer')" id="btn-micrometer" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-semibold text-xs transition">
+                                <i class="fa-solid fa-screw-driver me-1"></i> Mode Mikrometer Sekrup
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 bg-slate-900/90 rounded-2xl p-6 border border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs text-slate-400 font-mono" id="tool-name-label">MODE: JANGKA SORONG (CALIPER)</span>
+                            <span class="text-xs text-emerald-400 font-mono"><i class="fa-solid fa-circle text-[8px] me-1"></i> STATUS: QC PASS</span>
+                        </div>
+
+                        <!-- Slider control -->
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <label for="measurement-slider" class="text-xs font-semibold text-slate-300">Atur Ketebalan Komponen (mm):</label>
+                                <span id="measurement-display" class="text-2xl font-mono font-extrabold text-blue-400">12.45 mm</span>
+                            </div>
+                            <input type="range" id="measurement-slider" min="0.5" max="25.00" step="0.05" value="12.45" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                            
+                            <!-- Visual Graphic Box -->
+                            <div class="h-24 bg-navy-950 rounded-xl border border-slate-800 flex items-center justify-center p-4 relative overflow-hidden">
+                                <div id="part-box" class="h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded flex items-center justify-center text-xs font-mono font-bold text-white shadow-lg transition-all" style="width: 50%;">
+                                    Komponen Otomotif
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 text-xs font-mono text-slate-400 pt-2 border-t border-slate-800">
+                                <div>Toleransi Max: <span class="text-slate-200">+0.02 mm</span></div>
+                                <div>Toleransi Min: <span class="text-slate-200">-0.02 mm</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Masspro Project Section -->
+    <section id="masspro" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">New Model Development</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3">Pengalaman Proyek Masspro</h2>
+                <p class="text-slate-600 mt-2 text-base">Keterlibatan aktif dari tahap alur percobaan (trial) kendaraan baru hingga siap diproduksi secara massal (Mass Production).</p>
+            </div>
+
+            <!-- Steps / Process Timeline Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                
+                <!-- Step 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-navy-950 text-white font-mono font-bold flex items-center justify-center text-sm mb-4">
+                        01
+                    </div>
+                    <h3 class="font-bold text-navy-950 text-lg">Trial & Tooling Check</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        Pemeriksaan ketersediaan mold, dies stamping, dan kelengkapan welding jig untuk trial prototipe mobil baru.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-white font-mono font-bold flex items-center justify-center text-sm mb-4">
+                        02
+                    </div>
+                    <h3 class="font-bold text-navy-950 text-lg">In-Process Measurement</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        Pengukuran dimensi kritis menggunakan Caliper dan Mikrometer Sekrup untuk memastikan kecocokan spesifikasi engineering.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500 text-white font-mono font-bold flex items-center justify-center text-sm mb-4">
+                        03
+                    </div>
+                    <h3 class="font-bold text-navy-950 text-lg">Troubleshooting & Adjust</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        Kolaborasi dengan tim maintenance & engineering jika terjadi kendala teknis untuk efisiensi siklus produksi.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-sm mb-4">
+                        04
+                    </div>
+                    <h3 class="font-bold text-navy-950 text-lg">Mass Production (Masspro)</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        Pencapaian ritme produksi massal yang stabil dengan konsistensi mutu tinggi dan kelancaran alur kerja.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Highlight Banner -->
+            <div class="mt-12 bg-gradient-to-r from-navy-950 to-blue-900 rounded-2xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="space-y-1 text-center sm:text-left">
+                    <h4 class="text-xl font-bold">Siap Mengakselerasi Target Produksi Perusahaan Anda</h4>
+                    <p class="text-slate-300 text-xs sm:text-sm">Siap ditempatkan pada posisi Operator Produksi, Welding, Stamping, maupun Engineering Support.</p>
+                </div>
+                <a href="#contact" class="px-6 py-3 rounded-xl bg-white text-navy-950 font-bold text-xs uppercase tracking-wider hover:bg-slate-100 transition whitespace-nowrap">
+                    <i class="fa-solid fa-paper-plane me-1"></i> Rekrut Mustopa
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education & Soft Skills Section -->
+    <section id="education" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left: Education -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-blue-700 font-bold text-xs uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Latar Belakang Akademis</span>
+                        <h2 class="text-3xl font-extrabold text-navy-950 mt-3">Pendidikan Resmi</h2>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-bl-full pointer-events-none"></div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-navy-950 text-white flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-mono font-bold text-blue-700">2017 – 2020</span>
+                                <h3 class="text-xl font-bold text-navy-950 mt-0.5">SMK Puja Bangsa</h3>
+                                <p class="text-sm font-semibold text-slate-700">Teknik Kendaraan Ringan (TKR)</p>
+                                
+                                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                                    Fokus Keahlian: Pemeliharaan Mesin Kendaraan, Kelistrikan Otomotif, Teknik Pengelasan Dasar, Pembacaan Gambar Teknik (Engineering Drawing), dan Pengukuran Teknik Presisi.
+                                </p>
+
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-[11px] font-medium">Teknik Kendaraan Ringan</span>
+                                    <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-[11px] font-medium">Gambar Teknik</span>
+                                    <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-mono text-[11px] font-medium">Elektrikal & Mesin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interpersonal Soft Skills -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-blue-700 font-bold text-xs uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Karakter & Kerja Tim</span>
+                        <h2 class="text-3xl font-extrabold text-navy-950 mt-3">Soft Skills & Kompetensi</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                            <i class="fa-solid fa-clock-check text-blue-600 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Kedisiplinan Tinggi</h4>
+                                <p class="text-xs text-slate-500 mt-1">Hadir tepat waktu dan taat aturan SOP perusahaan.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                            <i class="fa-solid fa-people-group text-emerald-600 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Kerjasama Tim (Teamwork)</h4>
+                                <p class="text-xs text-slate-500 mt-1">Komunikatif & solid berkoordinasi di line produksi.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                            <i class="fa-solid fa-wrench text-amber-600 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Troubleshooting Ringan</h4>
+                                <p class="text-xs text-slate-500 mt-1">Cepat tanggap menangani masalah minor pada mesin.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                            <i class="fa-solid fa-bullseye text-purple-600 text-lg mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-navy-950 text-sm">Ketelitian & Adaptabilitas</h4>
+                                <p class="text-xs text-slate-500 mt-1">Akurat dalam inspeksi dan cepat belajar sistem baru.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                <!-- Background ambient design -->
+                <div class="absolute -bottom-10 -right-10 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                    
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-mono font-bold border border-blue-500/30">
+                            HUBUNGI SAYA DIRECTLY
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Mari Berdiskusi & Berkolaborasi</h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Saya selalu terbuka untuk peluang karir di sektor industri manufaktur otomotif, pengelasan, pengoperasian Hoist Crane, maupun peran engineering support.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <!-- Email Item -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-900/50 text-blue-400 flex items-center justify-center text-lg border border-blue-800">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Email Utama</p>
+                                    <a href="mailto:mustopa6801@gmail.com" class="text-sm sm:text-base font-bold text-white hover:text-blue-300 transition">
+                                        mustopa6801@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Phone / WhatsApp Item -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-900/50 text-emerald-400 flex items-center justify-center text-lg border border-emerald-800">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Telepon / WhatsApp</p>
+                                    <a href="https://wa.me/628568967167" target="_blank" class="text-sm sm:text-base font-bold text-white hover:text-emerald-300 transition">
+                                        08568967167 (+62 856-8967-167)
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Location Item -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-900/50 text-purple-400 flex items-center justify-center text-lg border border-purple-800">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Domisili</p>
+                                    <p class="text-sm sm:text-base font-bold text-white">Bekasi, Jawa Barat, Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Action Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4">
+                            <h3 class="text-lg font-bold text-white mb-2">Pilihan Kontak Cepat</h3>
+
+                            <a href="https://wa.me/628568967167?text=Halo%20Mustopa,%20saya%20tertarik%20dengan%20profil%20dan%20pengalaman%20kerja%20Anda." target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Kirim Pesan WhatsApp
+                            </a>
+
+                            <a href="mailto:mustopa6801@gmail.com?subject=Tawaran%20Kerja%20-%20Operator%20Produksi" class="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg">
+                                <i class="fa-solid fa-paper-plane text-lg"></i> Kirim Email Langsung
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/mus-topa-6b08b2392" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm flex items-center justify-center gap-2 transition border border-slate-700">
+                                <i class="fa-brands fa-linkedin text-lg text-blue-400"></i> Kunjungi Profil LinkedIn
+                            </a>
+
+                            <!-- Copy Email Notification Toast Anchor -->
+                            <div id="toast-msg" class="hidden text-center py-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-lg text-xs font-mono">
+                                <i class="fa-solid fa-check me-1"></i> Email berhasil disalin ke clipboard!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-900 text-slate-400 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <p class="font-semibold text-slate-200">MUSTOPA — Portfolio Otomotif & Manufaktur</p>
+                <p class="text-slate-500 mt-0.5">© 2026 Mustopa. All rights reserved.</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#hero" class="hover:text-white transition">Kembali ke Atas <i class="fa-solid fa-arrow-up ms-1"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email function (No alert used!)
+        function copyEmail() {
+            const email = "mustopa6801@gmail.com";
+            
+            // Clipboard standard with fallback
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email);
+            } else {
+                const tempInput = document.createElement("input");
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+            }
+
+            const copyBtnText = document.getElementById("copy-btn-text");
+            const toast = document.getElementById("toast-msg");
+            
+            if (copyBtnText) copyBtnText.textContent = "Email Tersalin!";
+            if (toast) toast.classList.remove("hidden");
+
+            setTimeout(() => {
+                if (copyBtnText) copyBtnText.textContent = email;
+                if (toast) toast.classList.add("hidden");
+            }, 3000);
+        }
+
+        // Interactive Measurement Simulator
+        let currentMode = 'caliper';
+        const measurementSlider = document.getElementById('measurement-slider');
+        const measurementDisplay = document.getElementById('measurement-display');
+        const partBox = document.getElementById('part-box');
+        const toolNameLabel = document.getElementById('tool-name-label');
+        const btnCaliper = document.getElementById('btn-caliper');
+        const btnMicrometer = document.getElementById('btn-micrometer');
+
+        function setMeasurement(mode) {
+            currentMode = mode;
+            if (mode === 'caliper') {
+                toolNameLabel.textContent = "MODE: JANGKA SORONG (CALIPER)";
+                measurementSlider.min = "0.50";
+                measurementSlider.max = "25.00";
+                measurementSlider.step = "0.05";
+                btnCaliper.className = "px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold text-xs transition";
+                btnMicrometer.className = "px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-semibold text-xs transition";
+            } else {
+                toolNameLabel.textContent = "MODE: MIKROMETER SEKRUP";
+                measurementSlider.min = "0.01";
+                measurementSlider.max = "10.00";
+                measurementSlider.step = "0.01";
+                btnMicrometer.className = "px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold text-xs transition";
+                btnCaliper.className = "px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-semibold text-xs transition";
+            }
+            updateMeasurement();
+        }
+
+        function updateMeasurement() {
+            const val = parseFloat(measurementSlider.value).toFixed(2);
+            measurementDisplay.textContent = val + " mm";
+            
+            // Adjust visual width dynamically
+            const maxVal = parseFloat(measurementSlider.max);
+            const percentage = Math.max(15, Math.min(90, (val / maxVal) * 100));
+            partBox.style.width = percentage + "%";
+        }
+
+        if (measurementSlider) {
+            measurementSlider.addEventListener('input', updateMeasurement);
+        }
+    </script>
+</body>
+</html>
